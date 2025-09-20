@@ -1,40 +1,37 @@
-//your JS code here. If required.
-const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
+const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
+
+const buttonsContainer = document.getElementById("buttons");
+let currentAudio = null;
 
 sounds.forEach(sound => {
-  const btn = document.createElement('button');
-  btn.classList.add('btn');
+  const btn = document.createElement("button");
+  btn.classList.add("btn");
   btn.innerText = sound;
 
-  btn.addEventListener('click', () => {
+  btn.addEventListener("click", () => {
     stopSounds();
     const audio = document.getElementById(sound);
     audio.play();
+    currentAudio = audio;
   });
 
-  document.getElementById('buttons').appendChild(btn);
+  buttonsContainer.appendChild(btn);
 });
 
-// Add stop button
-const stopBtn = document.createElement('button');
-stopBtn.classList.add('stop');
-stopBtn.innerText = 'stop';
-stopBtn.addEventListener('click', stopSounds);
-document.getElementById('buttons').appendChild(stopBtn);
+const stopBtn = document.createElement("button");
+stopBtn.classList.add("stop");
+stopBtn.innerText = "stop";
 
-// Add audio elements dynamically
-sounds.forEach(sound => {
-  const audio = document.createElement('audio');
-  audio.id = sound;
-  audio.src = `sounds/${sound}.mp3`; 
-  document.body.appendChild(audio);
+stopBtn.addEventListener("click", () => {
+  stopSounds();
 });
+
+buttonsContainer.appendChild(stopBtn);
 
 function stopSounds() {
-  sounds.forEach(sound => {
-    const audio = document.getElementById(sound);
-    audio.pause();
-    audio.currentTime = 0;
-  });
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  }
 }
-

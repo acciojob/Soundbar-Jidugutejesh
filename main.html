@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Soundbar App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	  <div id="buttons">
-    <button class="btn">applause</button>
-    <button class="btn">boo</button>
-    <button class="btn">gasp</button>
-    <button class="btn">tada</button>
-    <button class="btn">victory</button>
-    <button class="btn">wrong</button>
-    <button class="stop">stop</button>
-  </div>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h1>Soundbar 🎵</h1>
 
+  <!-- Container for buttons -->
+  <div id="buttons"></div>
+
+  <!-- Audio elements (must match file names in sounds/ folder) -->
+  <audio id="applause" src="sounds/applause.mp3"></audio>
+  <audio id="boo" src="sounds/boo.mp3"></audio>
+  <audio id="gasp" src="sounds/gasp.mp3"></audio>
+  <audio id="tada" src="sounds/tada.mp3"></audio>
+  <audio id="victory" src="sounds/victory.mp3"></audio>
+  <audio id="wrong" src="sounds/wrong.mp3"></audio>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
